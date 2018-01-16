@@ -1,5 +1,6 @@
 # Mongo backup
 
+[![Docker Repository on Quay](https://quay.io/repository/jrottenberg/mongobackup/status "Docker Repository on Quay")](https://quay.io/repository/jrottenberg/mongobackup)
 
 ## Operations
 Two modes of operation
@@ -17,9 +18,9 @@ Run as a job trigger , execute /backup.sh directly
 
 ## Environment variables
 
-MONGO_SERVER=mongodb
-SUFFIX=backup/mongo
-S3_BUCKET
+- MONGO_SERVER=mongodb
+- SUFFIX=backup/mongo
+- S3_BUCKET
 
 CRON=hourly|daily|weekly (or not set to run standalone command)
 
