@@ -7,20 +7,17 @@ case $(echo ${CRON} | tr 'A-Z' 'a-z') in
 hourly)
   rm  /etc/cron.*/*
   mv /backup.sh /etc/cron.hourly/backup_mongo
-  cron
-  sleep infinity
+  cron -f
   ;;
 daily)
   rm  /etc/cron.*/*
   mv /backup.sh /etc/cron.daily/backup_mongo
-  cron
-  sleep infinity
+  cron -f
   ;;
 weekly)
   rm  /etc/cron.*/*
   mv /backup.sh /etc/cron.weekly/backup_mongo
-  cron
-  sleep infinity
+  cron -f
   ;;
 *)
   echo "Executing one time backup"
