@@ -1,0 +1,29 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:3
+    ports:
+    - "27017:27017/tcp"
+
+  minio:
+    image: minio/minio
+    command: server /data
+    environment:
+        MINIO_ACCESS_KEY: minio
+        MINIO_SECRET_KEY: minio123
+    ports:
+    - "9000:9000"
+
+# To test locally you'll need:
+# alias aws='aws --endpoint http://minio:9000'
+# aws s3 mb s3://${S3_BUCKET}
+
+  backup:
+    image: mongobackup
+    build: .
+    environment:
+        AWS_ACCESS_KEY_ID: minio
+        AWS_SECRET_ACCESS_KEY: minio123
+        AWS_REGION: us-east-1
+        CRON: hourly
+        S3_BUCKET: test-backup
