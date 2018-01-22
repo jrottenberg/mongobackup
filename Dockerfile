@@ -3,7 +3,7 @@ FROM    mongo:3.2
 ENTRYPOINT []
 ENV     MONGO_SERVER=mongodb \
         SUFFIX=backup/mongo
-CMD     ['/entrypoint.sh']
+CMD     ["/entrypoint.sh"]
 
 RUN     apt-get update && \
         apt-get install -y --no-install-recommends \

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 
-case ${CRON} in
+case $(echo ${CRON} | tr 'A-Z' 'a-z') in
 hourly)
   rm  /etc/cron.*/*
   mv /backup.sh /etc/cron.hourly/backup_mongo
