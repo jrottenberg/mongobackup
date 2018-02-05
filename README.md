@@ -7,20 +7,23 @@ Two modes of operation
 
 ### Crond
 
-Run as a deployment, crond inside the container will initiates the backup
+Run as a deployment, [supercronic](https://github.com/aptible/supercronic) inside the container will initiates the backup
 
 choose CRON=hourly|daily|weekly
+I use minutely for my test.
 
 ### Standalone
-Run as a job trigger , execute /backup.sh directly
+Run as a job trigger , executes /backup.sh directly
 
 
 
 ## Environment variables
 
 - MONGO_SERVER=mongodb
-- SUFFIX=backup/mongo
+- PREFIX=backup/mongo
 - S3_BUCKET
 
 CRON=hourly|daily|weekly (or not set to run standalone command)
+
+Make sure you have write access to ${S3_BUCKET}
 
