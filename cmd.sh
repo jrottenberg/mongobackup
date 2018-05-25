@@ -9,14 +9,17 @@ minutely)
   supercronic -json /crontab
   ;;
 hourly)
+  /backup.sh
   echo '@hourly  /backup.sh' > /crontab
   supercronic -json /crontab
   ;;
 daily)
+  /backup.sh
   echo '@daily /backup.sh' > /crontab
   supercronic -json /crontab
   ;;
 weekly)
+  /backup.sh
   echo '@weekly  /backup.sh' > /crontab
   supercronic -json /crontab
   ;;
